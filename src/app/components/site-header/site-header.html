@@ -1,0 +1,23 @@
+<header class="site-header" [class.is-pinned]="pinned()">
+  <div class="site-header__bar">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menu"
+      [attr.aria-expanded]="open()"
+      (click)="toggle()"
+    >
+      <span></span>
+    </button>
+    <ul class="site-nav" [class.is-open]="open()">
+      <li><a class="site-nav__home" href="#inicio" (click)="close()">Home</a></li>
+      <li><a href="#casal" (click)="close()">O casal</a></li>
+      <li><a href="#presentes" (click)="close()">Lista de presentes</a></li>
+      <li><a href="#presenca" (click)="close()">Confirme sua presença</a></li>
+    </ul>
+  </div>
+</header>
+
+@if (pinned()) {
+  <button class="to-top" type="button" aria-label="Voltar ao topo" (click)="goTop()">↑</button>
+}

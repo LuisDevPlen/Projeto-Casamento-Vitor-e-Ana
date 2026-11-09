@@ -1,0 +1,84 @@
+<section class="gifts" id="presentes">
+  <h2 class="section-title">Lista de presentes</h2>
+
+  <div class="pix-universal" id="pix">
+    <h3>Pix para qualquer presente</h3>
+    <p>
+      Este código cai sempre na mesma chave. No aplicativo do banco, a pessoa escolhe o valor.
+    </p>
+    @if (universalQr()) {
+      <img [src]="universalQr()" alt="QR Code Pix de Vitor e Ana" />
+    }
+    <p class="pix-universal__key">{{ pixKey }}</p>
+    <textarea id="pix-universal" readonly rows="4" [value]="universalCode()"></textarea>
+    <button type="button" (click)="copyUniversalPix()">
+      {{ universalCopied() ? 'Código copiado' : 'Copiar Pix' }}
+    </button>
+    @if (universalHint()) {
+      <p class="pix-universal__hint">{{ universalHint() }}</p>
+    }
+  </div>
+
+  <div class="gifts__toolbar">
+    <label for="ordenar">Ordenar lista por:</label>
+    <select id="ordenar" (change)="onSort($event)">
+      <option value="az">A-Z</option>
+      <option value="menor">Menor preço</option>
+      <option value="maior">Maior preço</option>
+    </select>
+  </div>
+
+  <ul class="gifts__grid">
+    @for (gift of gifts(); track gift.imagem) {
+      <li>
+        <article class="gift-card">
+          <div class="gift-card__image">
+            <img [src]="gift.imagem" [alt]="gift.nome" />
+          </div>
+          <h3>{{ gift.nome }}</h3>
+          <p class="gift-card__price">{{ price(gift.valor) }}</p>
+          <button type="button" (click)="present(gift)">Presentear</button>
+        </article>
+      </li>
+    }
+  </ul>
+</section>
+
+@if (selected(); as gift) {
+  <div class="pix-modal" (click)="close()">
+    <div
+      class="pix-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pix-title"
+      (click)="$event.stopPropagation()"
+    >
+      <button type="button" class="pix-modal__close" (click)="close()" aria-label="Fechar">
+        ×
+      </button>
+      <h3 id="pix-title">Presentear</h3>
+      <p class="pix-modal__gift">{{ gift.nome }}</p>
+      <p class="pix-modal__price">{{ price(gift.valor) }}</p>
+
+      @if (pixError()) {
+        <p class="pix-modal__error">{{ pixError() }}</p>
+      } @else {
+        <p>Escaneie o QR Code ou copie o código para pagar este presente.</p>
+        @if (qrCode()) {
+          <img class="pix-modal__qr" [src]="qrCode()" [alt]="'QR Code Pix de ' + gift.nome" />
+        }
+        <textarea id="pix-code" readonly rows="4" [value]="pixCode()"></textarea>
+        <button type="button" class="pix-modal__copy" (click)="copyPix()">
+          {{ copied() ? 'Código copiado' : 'Copiar código Pix' }}
+        </button>
+        @if (copyHint()) {
+          <p class="pix-modal__hint">{{ copyHint() }}</p>
+        }
+      }
+
+      <button type="button" class="pix-modal__whatsapp" (click)="notifyCouple()">
+        Avisar o casal no WhatsApp
+      </button>
+    </div>
+  </div>
+}

@@ -1,0 +1,21 @@
+<section class="countdown" aria-label="Contagem regressiva">
+  <h2 class="section-title section-title--light">Contagem regressiva</h2>
+  <div class="countdown__grid">
+    <div class="countdown__item">
+      <strong>{{ remaining().days }}</strong>
+      <span>Dias</span>
+    </div>
+    <div class="countdown__item">
+      <strong>{{ remaining().hours }}</strong>
+      <span>Horas</span>
+    </div>
+    <div class="countdown__item">
+      <strong>{{ remaining().minutes }}</strong>
+      <span>Minutos</span>
+    </div>
+    <div class="countdown__item">
+      <strong>{{ remaining().seconds }}</strong>
+      <span>Segundos</span>
+    </div>
+  </div>
+</section>
