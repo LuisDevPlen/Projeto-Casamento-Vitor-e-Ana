@@ -47,7 +47,7 @@ export const GIFTS: readonly Gift[] = [
   },
   {
     nome: 'Batedeira',
-    valor: 499,
+    valor: 499.9,
     imagem: '/images/presentes/batedeira.jpg',
   },
   {
@@ -97,12 +97,12 @@ export const GIFTS: readonly Gift[] = [
   },
   {
     nome: 'Mesa de apoio',
-    valor: 120,
+    valor: 117.9,
     imagem: '/images/presentes/mesa-apoio.jpg',
   },
   {
     nome: 'Frigobar retrô',
-    valor: 1830.9,
+    valor: 1890,
     imagem: '/images/presentes/frigobar.jpg',
   },
   {
@@ -124,5 +124,35 @@ export const GIFTS: readonly Gift[] = [
     nome: 'Sofá modular',
     valor: 16000,
     imagem: '/images/presentes/sofa-branco.jpg',
+  },
+  {
+    nome: 'Armário de lavanderia',
+    valor: 400,
+    imagem: '/images/presentes/armario-lavanderia.jpg',
+  },
+  {
+    nome: 'Petisqueira',
+    valor: 107.1,
+    imagem: '/images/presentes/petisqueira.jpg',
+  },
+  {
+    nome: 'Pote organizador',
+    valor: 79.9,
+    imagem: '/images/presentes/pote-organizador.jpg',
+  },
+  {
+    nome: 'Multiprocessador',
+    valor: 322,
+    imagem: '/images/presentes/multiprocessador.jpg',
+  },
+  {
+    nome: 'Kit puf',
+    valor: 284.9,
+    imagem: '/images/presentes/kit-puf.jpg',
+  },
+  {
+    nome: 'Jogo de taça',
+    valor: 79.9,
+    imagem: '/images/presentes/jogo-taca.jpg',
   },
 ];

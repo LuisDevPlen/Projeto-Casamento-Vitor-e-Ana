@@ -19,6 +19,15 @@
     }
   </div>
 
+  <div class="gift-installments">
+    <h3>Presentear parcelado no cartão</h3>
+    <p>
+      Se quiser presentear parcelado no cartão de crédito, entre em contato com a gente. Enviamos o
+      link de pagamento.
+    </p>
+    <button type="button" (click)="contactInstallments()">Entrar em contato</button>
+  </div>
+
   <div class="gifts__toolbar">
     <label for="ordenar">Ordenar lista por:</label>
     <select id="ordenar" (change)="onSort($event)">
@@ -78,6 +87,9 @@
 
       <button type="button" class="pix-modal__whatsapp" (click)="notifyCouple()">
         Avisar o casal no WhatsApp
+      </button>
+      <button type="button" class="pix-modal__whatsapp" (click)="contactGiftInstallments()">
+        Quero parcelar no cartão
       </button>
     </div>
   </div>

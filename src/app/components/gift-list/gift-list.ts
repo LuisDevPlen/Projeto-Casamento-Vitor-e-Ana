@@ -143,6 +143,41 @@ export class GiftList {
     openWhatsApp(this.giftMessage(gift));
   }
 
+  protected contactInstallments(): void {
+    openWhatsApp(
+      [
+        'Olá, Vitor e Ana!',
+        '',
+        'Gostaria de presentear parcelado no cartão de crédito.',
+        'Podem me enviar o link de pagamento?',
+        '',
+        'Meu nome:',
+        'Presente:',
+      ].join('\n'),
+    );
+  }
+
+  protected contactGiftInstallments(): void {
+    const gift = this.selected();
+    if (!gift) {
+      return;
+    }
+
+    openWhatsApp(
+      [
+        'Olá, Vitor e Ana!',
+        '',
+        'Gostaria de presentear parcelado no cartão de crédito.',
+        'Podem me enviar o link de pagamento?',
+        '',
+        `Presente: ${gift.nome}`,
+        `Valor: ${this.price(gift.valor)}`,
+        '',
+        'Meu nome:',
+      ].join('\n'),
+    );
+  }
+
   @HostListener('document:keydown.escape')
   protected closeOnEscape(): void {
     if (this.selected()) {
